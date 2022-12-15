@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  recruiter: MyString
+  ifremote: MyString
+  location: MyString
+  user_id: 1
+  stack: MyString
+
+two:
+  title: MyString
+  recruiter: MyString
+  ifremote: MyString
+  location: MyString
+  user_id: 1
+  stack: MyString
