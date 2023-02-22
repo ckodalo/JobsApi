@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   post "/submit", to: "sessions#create"
   post "/submit/new", to: "users#create"
+  delete "/logout", to: "sessions#destroy"
   #delete "/logout", to: "sessions#destroy"
   # get "/auth", to: "users#show"
   resources :users
