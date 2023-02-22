@@ -59,7 +59,7 @@ class JobsController < ApplicationController
        end
 
        def job_params
-           params_permit(:title, :recruiter, :stack, :ifremote, :location, :user_id)
+           params.permit(:title, :recruiter, :stack, :ifremote, :location, :user_id)
        end
 
        def authorize
