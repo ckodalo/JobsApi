@@ -6,6 +6,7 @@ class CreateJobs < ActiveRecord::Migration[7.0]
       t.string :location
       t.integer :user_id
       t.string :details
+      t.string :category
       t.date :deadline
 
       t.timestamps
