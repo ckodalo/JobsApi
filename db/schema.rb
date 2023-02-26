@@ -14,10 +14,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_15_154249) do
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "recruiter"
-    t.string "ifremote"
     t.string "location"
     t.integer "user_id"
-    t.string "stack"
+    t.string "details"
+    t.date "deadline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

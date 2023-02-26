@@ -3,10 +3,10 @@ class CreateJobs < ActiveRecord::Migration[7.0]
     create_table :jobs do |t|
       t.string :title
       t.string :recruiter
-      t.string :ifremote
       t.string :location
       t.integer :user_id
-      t.string :stack
+      t.string :details
+      t.date :deadline
 
       t.timestamps
     end
