@@ -58,9 +58,17 @@ class JobsController < ApplicationController
            job = Job.find_by(id: params[:id])
        end
 
-       def job_params
-           params.permit(:title, :recruiter, :details, :deadline, :location, :category :user_id)
-       end
+    #    def job_params
+    #        params.permit(:title, :recruiter, :details, :deadline, :location, :category, :user_id)
+    #    end
+
+    def job_params
+        params.permit(:title, :recruiter, :details, :deadline, :location, :category, :user_id)
+        .tap do |job_params|
+          job_params[:deadline] = DateTime.parse(job_params[:deadline]) if job_params[:deadline].present?
+        end
+      end
+      
 
        def authorize
             return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
