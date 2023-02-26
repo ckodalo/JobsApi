@@ -1,5 +1,5 @@
 class JobSerializer < ActiveModel::Serializer
-    attributes :id, :title, :recruiter, :location, :ifremote, :stack, :user_id
+    attributes :id, :title, :recruiter, :location, :deadline, :details, :user_id
 
     belongs_to :user
   
