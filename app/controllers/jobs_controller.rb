@@ -15,9 +15,9 @@ class JobsController < ApplicationController
    def create
        job = Job.create!(job_params)
        if job
-           render json: job
+        render json: { message: 'Job successfully created!', job: job }
        else
-           render json: { errors: "validation errors"}, status: :unprocessable_entity
+        render json: { message: 'Failed to create job' }, status: :unprocessable_entity
        
        end
    end
