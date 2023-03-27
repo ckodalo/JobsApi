@@ -1,6 +1,6 @@
 databases:
   - name: jobsApiDb
-    databaseName: jobsapidb_jm2p
+    databaseName: jobsApiDb
     user: jobsapidb_jm2p_user
 
 services:
