@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         else
             render json: { message: 'Failed to create user account', errors: user.errors.full_messages }, status: :unprocessable_entity
         end
-        end
+    
     end
 
    
@@ -34,15 +34,15 @@ class UsersController < ApplicationController
 
 
 
-    # def show
+     def show
         
-    #     user = User.find_by(id: session[:user_id])
-    #     if user
-    #         render json: user.jobs
-    #     else
-    #         render json: { error: "Not authorized" }, status: :unauthorized
-    #     end
-    # end
+         user = User.find_by(id: session[:user_id])
+         if user
+             render json: user.jobs
+         else
+             render json: { error: "Not authorized" }, status: :unauthorized
+         end
+     end
 
 
     
