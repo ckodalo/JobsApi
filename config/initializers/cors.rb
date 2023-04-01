@@ -5,19 +5,19 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-  # Rails.application.config.middleware.insert_before 0, Rack::Cors do
-  #   allow do
-  #     origins "http://localhost:4000"
-  #     resource "*",
-  #       headers: :any,
-  #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
-  #   end
+  Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins "http://localhost:4000"
+      resource "*",
+        headers: :any,
+        methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    end
   
-  #   # Allow requests from production environment
-  #   allow do
-  #       origins 'https://curious-sawine-9a0807.netlify.app/'
-  #       resource '*', headers: :any, 
-  #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
-  #     end
-  #   end
+    # Allow requests from production environment
+    allow do
+        origins 'https://mtandao.xyz/'
+        resource '*', headers: :any, 
+        methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      end
+     end
  
