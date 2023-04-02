@@ -63,7 +63,7 @@ class JobsController < ApplicationController
     #    end
 
     def job_params
-        params.permit(:title, :recruiter, :details, :deadline, :location, :category, :user_id)
+        params.permit(:title, :recruiter, :image, :details, :deadline, :location, :category, :user_id)
         .tap do |job_params|
           job_params[:deadline] = DateTime.parse(job_params[:deadline]) if job_params[:deadline].present?
         end
