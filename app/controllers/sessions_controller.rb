@@ -8,13 +8,13 @@ class SessionsController < ApplicationController
     
     # end
    
-    #create sesssion after auth
+    #create sesssion after auth/ need to look into this, name is not a unique identifier, probably solve it with unique usernames
     def create
         user = User.find_by(name: params[:name])
         if user&.authenticate(params[:password])
             session[:user_id] = user.id
           
-            render json: { message: 'Logged in successfully!', user: user }, status: :created
+            render json: { message: 'Logged in successfully!', user: user, session: session}, status: :created
         else
             render json: { errors: ["Invalid username or passsword"] }, status: :unauthorized
         end
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
             session.delete :user_id
             head :no_content
         else
-            render json: { errors: ["Invalid username or passsword"] }, status: :unauthorized
+            render json: { errors: ["Invalid username or passsword"], session: session }, status: :unauthorized
         end
     end
 end
