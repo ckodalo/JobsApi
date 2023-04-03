@@ -41,26 +41,26 @@ module JobsApi
     config.middleware.use ActionDispatch::Session::CookieStore
 
 
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins 'http://localhost:3000'
-        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
-      end
-    end
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins 'http://localhost:3000'
+    #     resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    #   end
+    # end
 
-    ## this configuration may be useful to avoid errors 
-    config.middleware.insert_before 0, Rack::Cors do 
-      allow do 
-        origins '*' 
-        resource( '*', headers: :any, expose: ['Authorization'], methods: %i[get patch put delete post options show] ) 
+    # ## this configuration may be useful to avoid errors 
+    # config.middleware.insert_before 0, Rack::Cors do 
+    #   allow do 
+    #     origins '*' 
+    #     resource( '*', headers: :any, expose: ['Authorization'], methods: %i[get patch put delete post options show] ) 
       
-      end 
-    end
+    #   end 
+    # end
     
     
     # Use SameSite=Strict for all cookies to help protect against CSRF
     
-        config.action_dispatch.cookies_same_site_protection = :strict
+        # config.action_dispatch.cookies_same_site_protection = :strict
         # config.force_ssl = true
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true

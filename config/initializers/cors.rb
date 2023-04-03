@@ -13,11 +13,11 @@
   #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   #   end
   
-  #   # Allow requests from production environment
-  #   allow do
-  #       origins "https://mtandao.xyz"
-  #       resource '*', headers: :any, 
-  #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
-  #     end
-  #    end
+    # Allow requests from production environment
+    allow do
+        origins "https://mtandao.xyz"
+        resource '*', headers: :any, 
+        methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      end
+     end
  
