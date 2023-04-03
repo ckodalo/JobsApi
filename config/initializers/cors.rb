@@ -15,7 +15,7 @@
   
     # Allow requests from production environment
     allow do
-        origins 'https://mtandao.xyz/'
+        origins "https://mtandao.xyz"
         resource '*', headers: :any, 
         methods: [:get, :post, :put, :patch, :delete, :options, :head]
       end
