@@ -21,11 +21,11 @@
 #     end
 #   end
   
-    Allow requests from production environment
+    #Allow requests from production environment
     allow do
         origins ".mtandao.xyz"
         resource '*', headers: :any, 
         methods: [:get, :post, :put, :patch, :delete, :options, :head]
-      end
-     end
+    end
+    #  end
  
