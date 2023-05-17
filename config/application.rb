@@ -36,11 +36,18 @@ module JobsApi
     # Middleware like session, flash, cookies can be added back manually.
        # Must add these lines!
     # Adding back cookies and session middleware
-    config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use ActionDispatch::Session::CookieStore
 
-    config.middleware.use ActionDispatch::Session::CookieStore
+    Rails.application.config.middleware.use ActionDispatch::Cookies do
+      # Set the same_site option to :none to disable the SameSite attribute
+      config.same_site = :none
+    end
+    
+    Rails.application.config.middleware.use ActionDispatch::Session::CookieStore
+    
 
-    Rails.application.config.session_store :cookie_store, key: '_my_app_session', domain: :all
+    # Rails.application.config.session_store :cookie_store, key: '_my_app_session', domain: :all
 
 
 
