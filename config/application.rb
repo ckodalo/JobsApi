@@ -40,6 +40,9 @@ module JobsApi
 
     config.middleware.use ActionDispatch::Session::CookieStore
 
+    Rails.application.config.session_store :cookie_store, key: '_my_app_session', domain: '.mtandao.xyz'
+
+
 
     # config.middleware.insert_before 0, Rack::Cors do
     #   allow do
@@ -47,6 +50,15 @@ module JobsApi
     #     resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
     #   end
     # end
+
+    # Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins 'https://mtandao.xyz'
+    #     resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    #   end
+    # end
+    
+  
 
     ## this configuration may be useful to avoid errors 
     # config.middleware.insert_before 0, Rack::Cors do 
