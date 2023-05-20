@@ -39,46 +39,29 @@ module JobsApi
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
 
-    Rails.application.config.session_store :cookie_store, key: '_my_app_session', domain: :all, tld_length: 2
+   
+    # config/initializers/session_store.rb
+    # config.session_store :cookie_store, key: '_jobs_api_session', domain: :all, tld_length: 2, secure: true, same_site: :none
 
-
-    
 
     # Rails.application.config.session_store :cookie_store, key: '_my_app_session', domain: :all
 
 
-
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'mtandao.xyz'
-        resource( '*', headers: :any, expose: ['Authorization'], methods: %i[get patch put delete post options show] )
+        origins 'localhost:4000', 'https://mtandao.xyz'
+        resource '*', headers: :any, methods: %i[get patch put delete post options show], credentials: true
       end
     end
+    
+  # Use SameSite=Strict for all cookies to help protect against CSRF
+    
 
-    # Rails.application.config.middleware.insert_before 0, Rack::Cors do
-    #   allow do
-    #     origins 'mtandao.xyz'
-    #     resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
-    #   end
-    # end
-    
-  
+        #  config.action_dispatch.cookies_same_site_protection = :strict
+        #  config.ssl_options = { hsts: { subdomains: true } }
 
-    ## this configuration may be useful to avoid errors 
-    # config.middleware.insert_before 0, Rack::Cors do 
-    #   allow do 
-    #     origins '*' 
-    #     resource( '*', headers: :any, expose: ['Authorization'], methods: %i[get patch put delete post options show] ) 
-      
-    #   end 
-    # end
-    
-    
-    # Use SameSite=Strict for all cookies to help protect against CSRF
-    
-         config.action_dispatch.cookies_same_site_protection = :strict
         # config.force_ssl = true
     # Skip views, helpers and assets when generating a new resource.
-    # config.api_only = true
+     config.api_only = true
   end
 end
