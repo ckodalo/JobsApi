@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "/submit", to: "sessions#create"
   post "/submit/new", to: "users#create"
   delete "/logout", to: "sessions#destroy"
+  get "/listings", to: "jobs#listings"
   #delete "/logout", to: "sessions#destroy"
   # get "/auth", to: "users#show"
   resources :users

@@ -176,6 +176,7 @@ DEPENDENCIES
   active_model_serializers
   bcrypt (~> 3.1.7)
   debug
+  nokogiri
   pg
   puma (~> 5.0)
   rack-cors

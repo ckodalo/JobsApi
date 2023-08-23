@@ -1,3 +1,6 @@
+require 'nokogiri'
+require 'open-uri'
+
 class JobsController < ApplicationController
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
@@ -5,6 +8,20 @@ class JobsController < ApplicationController
     def index
        jobs = Job.all
        render json: jobs
+   end
+
+   def listings 
+     
+    base_url = "https://www.myjobmag.co.ke"
+    doc = Nokogiri::HTML(URI.open("#{base_url}"))
+    @listings = []
+  
+    doc.xpath('//li[@class="mag-b"]/h2/a').each do |node|
+        relative_url = node['href']
+        absolute_url = URI.join(base_url, relative_url).to_s
+        @listings << { href: absolute_url, text: node.text }
+    end
+
    end
 
    def show

@@ -9,6 +9,9 @@ gem "rails", "~> 7.0.4"
 
 gem 'rails_same_site_cookie', '~> 0.1.9'
 
+# required for web scraping
+gem 'nokogiri'
+
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 

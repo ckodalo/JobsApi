@@ -62,6 +62,6 @@ module JobsApi
 
         # config.force_ssl = true
     # Skip views, helpers and assets when generating a new resource.
-     config.api_only = true
+     #config.api_only = true
   end
 end
